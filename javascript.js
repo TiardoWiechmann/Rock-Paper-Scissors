@@ -53,18 +53,18 @@ function playGame(){
     let humanSelection;
     let computerSelection;
 
-    const buttons = document.querySelectorAll("button");
+    const buttons = document.querySelectorAll(".choice");
 
-    const body = document.querySelector("body");
+    const divAnswers = document.querySelector(".answers");
 
     buttons.forEach(button => {
         button.addEventListener("click", () => {
             if (humanScore >= 5 || computerScore >= 5){
                 computerScore = 0;
                 humanScore = 0;
-                const divsRes = document.querySelectorAll("div");
-                divsRes.forEach((divRes) => {
-                    divRes.remove();
+                const addedDivs = document.querySelectorAll(".result, .current-score, .end-result");
+                addedDivs.forEach((addedDiv) => {
+                    addedDiv.remove();
                 })
             }
             humanSelection = button.textContent.toLowerCase();
@@ -72,11 +72,14 @@ function playGame(){
             let resultOfRound = playRound(humanSelection, computerSelection);
             const divRound = document.createElement("div");
             divRound.textContent = resultOfRound;
-            body.appendChild(divRound); 
+            divRound.className = "result";//
+            divAnswers.appendChild(divRound); 
             
             const currentScore = document.createElement("div");
             currentScore.textContent = `You: ${humanScore},\t Computer: ${computerScore}`;
-            body.appendChild(currentScore);
+            currentScore.className = "current-score";
+            currentScore.style.paddingBottom = "20px";
+            divAnswers.appendChild(currentScore);
 
             // Declare Winner
             if(humanScore >= 5 || computerScore >= 5){
@@ -88,7 +91,9 @@ function playGame(){
 
                 const div = document.createElement("div");
                 div.textContent = result;
-                body.appendChild(div);
+                div.className = "end-result";
+                div.style.fontWeight = "700";
+                divAnswers.appendChild(div);
             }
         })
     })
