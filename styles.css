@@ -6,15 +6,16 @@ body {
     display: flex;
     justify-content: center;
     background-color: rgba(96, 173, 233, 0.551);
-    padding: 20px;
+    padding: 5% 10%;
 }   
 
 h1 {
-    font-size: 70px;
+    font-size: 5vw;
 }
 
 .info-section{
     background-color: antiquewhite;
+    padding: 5% 10%;
 }
 
 .instructions {
@@ -23,7 +24,7 @@ h1 {
 }
 
 p {
-    font-size: 40px;
+    font-size: 2vw;
 }
 
 .buttons{
@@ -33,10 +34,10 @@ p {
 
 
 .choice {
-    width: 300px;
-    height: 300px;
+    width: 15vw;
+    aspect-ratio: 1/1;
     background-color: aqua;
-    font-size: 50px;
+    font-size: 3vw;
 }
 
 .answers {
@@ -44,6 +45,8 @@ p {
     flex-direction: column;
     background-color:antiquewhite;
     flex-wrap: wrap;
-    max-height: 300px;
+    max-height: 50vh;
+    padding: 5% 10%;
+    font-size: 2vw;
 }
 
